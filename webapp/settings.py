@@ -21,12 +21,12 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-55$1=ok0y2uex%4up&9#*z#@#(y22i^q_h%)t5^hovw(io@yr_'
+SECRET_KEY = 'django-insecure-55$1=ok0y2uexvw(io@yr_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://rustamov-genetic.herokuapp.com/']
 
 
 # Application definition
