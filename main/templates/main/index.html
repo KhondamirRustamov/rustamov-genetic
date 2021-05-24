@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Задачи по генетике{% endblock %}
+
+{% block body %}
+
+<div class="container text-center">
+
+        <br>
+        <br>
+        <h1 class="display-4 text-center">ХОНДАМИР РУСТАМОВ</h1>
+    <hr>
+
+        <h1 class="display-4 text-center">ОНЛАЙН ЗАДАЧНИК ПО ГЕНЕТИКЕ</h1>
+
+
+        <br>
+    <br>
+
+    <div class="d-flex justify-content-center py-3">
+        {% load static %} <img src="{% static 'images/img.png' %}" />
+    </div>
+    <br>
+    <h1 class="display-4 text-center">ВОЙТИ, ЧТОБЫ РЕШАТЬ</h1>
+    <BR>
+    <div class="d-flex justify-content-center py-3">
+        <a href="{% url 'login' %}" class="btn btn-success">ВОЙТИ</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} {{ problem.theme }}{{ problem.title }} {% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+  <div class="col-sm-11 col-md-4 col-lg-4 py-3">
+    <div class="card">
+      <div class="card-header text-center">
+        <h2>{{ problem.theme }} </h2>
+         <h3 class="text text-muted"> {{ problem.title }}</h3>
+      </div>
+      <div class="card-body py-3">
+        <p>{{ problem.text }}</p>
+        {% if error|length > 0 %}
+        <p class="text-success">{{ error }}</p>
+        {% else %}
+        <form method="POST">
+          {% csrf_token %}
+          <input type="text" id="answer" name="answer" class="form form-control"><br>
+          <button type="submit" class="btn btn-success">Отправить ответ</button>
+        </form>
+        {% endif %}
+        <h6 class="text-danger">{{ text }}</h6>
+      </div>
+    </div>
+    <div class="py-3">
+      <a href="{% url 'theme' theme.id %}" class="btn btn-info btn-block">Вернуться к задачам</a>
+      <a href="{% url 'theme-list' %}" class="btn btn-info btn-block">Вернуться к темам</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

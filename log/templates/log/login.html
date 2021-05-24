@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Вход {% endblock %}
+
+{% block body %}
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-sm-11 col-md-4 col-lg-4 py-3">
+        <div class="card">
+          <div class="card-header"><h3 class="text-center">Войти</h3></div>
+          <div class="card-body py-3">
+            <form method="post">
+              {% csrf_token %}
+                <input type="text" name="username" id="username" placeholder="Имя пользователя" class="form form-control">
+                <input type="password" name="password" id="password" placeholder="Пароль" class="form form-control">
+              <div class="d-flex justify-content-center py-3"><button type="submit" class="btn btn-success">Войти</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

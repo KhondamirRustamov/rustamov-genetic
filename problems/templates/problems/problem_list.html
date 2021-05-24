@@ -1,0 +1,61 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} {{theme.name}} {% endblock %}
+
+{% block body %}
+
+
+<div class="container text-center py-3">
+  <h2>{{theme.name}}</h2>
+  <p class="text text-success">Решено задач {{ solved }} из {{ number }}</p>
+  <div class="progress">
+    <div class="progress-bar bg-success" role="progressbar" style="width: {{progress}}%" aria-valuenow="{{solved}}" aria-valuemin="0" aria-valuemax="{{number}}">{{progress}}%</div>
+  </div>
+  <div class="py-3">
+  {% for article in problems %}
+  {% if usero in article.user_solver %}
+  <div class="py-3">
+    <div class="card border-success">
+      <div class="card-header border-success"><h6>{{ article.title }}</h6></div>
+      <div class="card-body">
+        <p>{{ article.text }}</p>
+        <div class="card-footer bg-transparent border-success">
+          <div class="row">
+            <div class="col-4">
+              <p class="text text-muted">Балл за задачу {{ article.ball }} ХР</p>
+            </div>
+            <div class="col-4"><h6 class="text text-success">Задача решена</h6></div>
+            <div class="col4 justify-content-end"><a href="{% url 'problem' article.id %}" class="btn btn-secondary">Смотреть</a></div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+  {% else %}
+    <div class="py-3">
+  <div class="card">
+      <div class="card-header"><p>{{ article.title }}</p></div>
+      <div class="card-body">
+        <p>{{ article.text }}</p>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-4">
+              <p class="text text-muted">Балл за задачу {{ article.ball }} ХР</p>
+            </div>
+            <div class="col-4 justify-content-end"><a href="{% url 'problem' article.id %}" class="btn btn-success">Решать</a></div>
+          </div>
+        </div>
+      </div>
+  </div>
+    </div>
+  {% endif %}
+  {% empty %}
+  </div>
+      <p>No articles yet.</p>
+  {% endfor %}
+    <div class="py-3">
+      <a href="{% url 'theme-list' %}" class="btn btn-info btn-block">Вернуться к темам</a>
+    </div>
+
+</div>
+{% endblock %}
